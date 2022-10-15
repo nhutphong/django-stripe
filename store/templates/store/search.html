@@ -8,7 +8,7 @@
     <h2 class="text-xs text-gray-600">Search results for "{{ query }}":</h2>
 
     {% if products %}
-        {% include 'store/partials/products.html' %}
+        {% include 'store/include/products.html' %}
     {% else %}
         <p>There are no products matching this query!</p>
     {% endif %}
