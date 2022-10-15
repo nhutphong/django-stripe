@@ -4,7 +4,7 @@ from store.models import Category
 
 register = template.Library()
 
-@register.inclusion_tag('core/menu.html')
+@register.inclusion_tag('home/menu.html')
 def menu():
     categories = Category.objects.all()
 

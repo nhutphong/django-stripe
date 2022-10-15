@@ -74,6 +74,7 @@ class Product(models.Model):
 
         return thumbnail
 
+# gio hang
 class Order(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
@@ -83,10 +84,13 @@ class Order(models.Model):
     paid_amount = models.IntegerField(blank=True, null=True)
     is_paid = models.BooleanField(default=False)
     payment_intent = models.CharField(max_length=255)
+    # order chi thuoc ve 1 user duy nhat
     created_by = models.ForeignKey(User, related_name='orders', on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+# product duoc chon vao (gio hang)= order
 class OrderItem(models.Model):
+    #
     order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
     product = models.ForeignKey(Product, related_name='items', on_delete=models.CASCADE)
     price = models.IntegerField()
